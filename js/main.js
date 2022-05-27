@@ -24,6 +24,7 @@ const $state = {
 
 // 검색창 입력시 함수 실행
 $refs.searchForm.addEventListener('submit', async e => {
+  e.preventDefault()
   searchMovies(true)
 })
 
@@ -82,7 +83,6 @@ function observerBox() {
 const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log('Observe!')
       searchMovies()
     }
   })
